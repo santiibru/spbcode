@@ -56,17 +56,23 @@ Las `VITE_*` se graban en el HTML durante el build: si cambian, hay que volver a
 
 ## Despliegue en Hostinger (app Node.js)
 
-1. En hPanel → **Websites → Add website → Node.js app** (planes Business/Cloud), conectar el repositorio de GitHub o subir el código.
+`npm install` ejecuta el build automáticamente (script `postinstall`), porque el preset
+Express de Hostinger solo corre `npm install` y no tiene campo de build command.
+Por eso las herramientas de build (Vite, TypeScript) están en `dependencies`.
+
+1. En hPanel → **Websites → Add website → Node.js app**, importar el repositorio de GitHub (rama `main`).
 2. Configuración:
+   - Framework: **Express** (no Vite: ese preset publica solo estáticos y no arranca la API)
    - Versión de Node: 22.x
-   - Build command: `npm run build`
-   - Start command / entry: `npm start` (archivo `build/server/index.js`)
+   - Directorio raíz: el principal (`.`)
+   - Archivo de entrada: `build/server/index.js`
 3. Cargar las variables de entorno de la tabla anterior en el panel de la app (nunca en el repo).
+   Las `VITE_*` se graban en el build: después de cambiarlas hay que hacer un redeploy.
 4. Para el SMTP, crear una casilla en **Emails** con el dominio (p. ej. `ciao@dominio`) y usar `smtp.hostinger.com:465` con sus credenciales.
 5. Desplegar y verificar: `/` redirige a `/it/` o `/es/`, `/sitemap.xml` responde, y el formulario envía.
 6. Dar de alta el sitemap en Google Search Console.
 
-En un VPS el proceso es el mismo: `npm ci && npm run build`, y `npm start` bajo pm2 o systemd detrás de nginx (con `TRUST_PROXY=1`).
+En un VPS el proceso es el mismo: `npm ci` (que ya construye), y `npm start` bajo pm2 o systemd detrás de nginx (con `TRUST_PROXY=1`).
 
 ## Agregar un idioma (p. ej. inglés)
 
