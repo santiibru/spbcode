@@ -68,7 +68,7 @@ Por eso las herramientas de build (Vite, TypeScript) están en `dependencies`.
    - Archivo de entrada: `build/server/index.js`
 3. Cargar las variables de entorno de la tabla anterior en el panel de la app (nunca en el repo).
    Las `VITE_*` se graban en el build: después de cambiarlas hay que hacer un redeploy.
-4. Para el SMTP, crear una casilla en **Emails** con el dominio (p. ej. `ciao@dominio`) y usar `smtp.hostinger.com:465` con sus credenciales.
+4. Para el SMTP, crear una casilla en **Emails** con el dominio (`info@spbcode.com`) y usar `smtp.hostinger.com:465` con sus credenciales.
 5. Desplegar y verificar: `/` redirige a `/it/` o `/es/`, `/sitemap.xml` responde, y el formulario envía.
 6. Dar de alta el sitemap en Google Search Console.
 

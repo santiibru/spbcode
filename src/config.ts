@@ -3,7 +3,7 @@ export const SITE = {
   name: "spbcode",
   author: "Santi",
   url: (import.meta.env.VITE_SITE_URL ?? "https://spbcode.com").replace(/\/$/, ""),
-  email: import.meta.env.VITE_CONTACT_EMAIL ?? "ciao@spbcode.com",
+  email: import.meta.env.VITE_CONTACT_EMAIL ?? "info@spbcode.com",
   // Única mención técnica del sitio
   stack: "React · TypeScript · Node.js · PostgreSQL",
   // Foto opcional para "Chi sono / Sobre mí". Ej.:
