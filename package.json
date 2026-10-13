@@ -1,0 +1,39 @@
+{
+  "name": "spbcode",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "dev": "vite",
+    "dev:server": "node --watch --experimental-strip-types server/index.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.server.json",
+    "build:client": "vite build",
+    "build:ssr": "vite build --ssr src/entry-server.tsx --outDir build/ssr --emptyOutDir",
+    "build:server": "tsc -p tsconfig.server.json",
+    "prerender": "node scripts/prerender.mjs",
+    "build": "npm run typecheck && npm run build:client && npm run build:ssr && npm run prerender && npm run build:server",
+    "size": "node scripts/size.mjs",
+    "start": "node build/server/index.js"
+  },
+  "dependencies": {
+    "compression": "^1.8.2",
+    "express": "^5.2.1",
+    "nodemailer": "^10.0.16",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.8.1",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.4",
+    "@types/nodemailer": "^8.0.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.3"
+  }
+}
