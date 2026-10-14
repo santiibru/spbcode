@@ -8,7 +8,7 @@ export const SITE = {
   stack: "React · TypeScript · Node.js · PostgreSQL",
   // Foto opcional para "Chi sono / Sobre mí". Ej.:
   // { avif: "/img/santi.avif", webp: "/img/santi.webp", width: 640, height: 800 }
-  photo: { avif: "/img/santi.avif", webp: "/img/santi.webp", width: 1086, height: 1448 } as
+  photo: { avif: "/img/santi.avif", webp: "/img/santi.webp", width: 896, height: 1195 } as
     | null
     | { avif?: string; webp: string; width: number; height: number },
   // Imagen para compartir en redes (1200×630), ruta dentro de public/. Ej.: "/og.png"
