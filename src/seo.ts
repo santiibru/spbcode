@@ -1,4 +1,5 @@
 import { SITE } from "./config";
+import { logoMark } from "./components/Logo";
 import { type Dict, type Locale, localeNames, localePath, locales, ogLocales, LANG_KEY } from "./i18n";
 
 const esc = (s: string) =>
@@ -90,7 +91,7 @@ function shell(title: string, body: string, extraHead = "") {
     <style>
       body{margin:0;min-height:100vh;min-height:100svh;display:grid;place-items:center;background:#07080a;color:#e8eaed;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;padding:24px;box-sizing:border-box}
       main{text-align:center}
-      .logo{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-weight:600;font-size:20px}.logo span{color:#7dd3a8}
+      .logo{display:inline-flex;align-items:center;gap:6px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-weight:600;font-size:20px}.logo span span{color:#7dd3a8}.logo svg{display:block;width:34px;height:34px}
       p{color:#8b919a;margin:20px 0 28px;line-height:1.6}
       nav{display:flex;gap:12px;justify-content:center}
       a{color:#e8eaed;text-decoration:none;border:1px solid #2a2e35;border-radius:999px;padding:10px 20px;font-weight:600}
@@ -104,6 +105,10 @@ function shell(title: string, body: string, extraHead = "") {
 </html>
 `;
 }
+
+// Con "reducir movimiento" el logo queda directamente en el último fotograma
+const logo = `<div class="logo">${logoMark("glow")}<span>spb<span>code</span></span></div>
+<script>if(matchMedia("(prefers-reduced-motion: reduce)").matches)document.querySelectorAll(".logo svg").forEach(function(s){s.pauseAnimations();s.setCurrentTime(5)})</script>`;
 
 const langLinks = () =>
   `<nav aria-label="Lingua / Idioma">${locales
@@ -124,7 +129,7 @@ location.replace("/"+(l||"${locales[0]}")+"/"+location.hash)})()</script>`;
   ].join("\n    ");
   return shell(
     "spbcode — Sviluppo web su misura · Desarrollo web a medida",
-    `<div class="logo">spb<span>code</span></div><p>Scegli la lingua · Elegí el idioma</p>${langLinks()}`,
+    `${logo}<p>Scegli la lingua · Elegí el idioma</p>${langLinks()}`,
     head,
   );
 }
@@ -132,7 +137,7 @@ location.replace("/"+(l||"${locales[0]}")+"/"+location.hash)})()</script>`;
 export function renderNotFoundPage() {
   return shell(
     "404 · spbcode",
-    `<div class="logo">spb<span>code</span></div><p>Pagina non trovata · Página no encontrada</p>${langLinks()}`,
+    `${logo}<p>Pagina non trovata · Página no encontrada</p>${langLinks()}`,
     `<meta name="robots" content="noindex">`,
   );
 }

@@ -12,5 +12,5 @@ export const SITE = {
     | null
     | { avif?: string; webp: string; width: number; height: number },
   // Imagen para compartir en redes (1200×630), ruta dentro de public/. Ej.: "/og.png"
-  ogImage: null as null | string,
+  ogImage: "/og.png" as null | string,
 };

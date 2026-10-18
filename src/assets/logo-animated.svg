@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.1" result="b1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.6" result="b2"/>
+      <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/></feMerge>
+    </filter>
+  </defs>
+  <!-- 0-0.9s: S · 0.9-2.4s: se separan y forman el logo · 2.4-3s: neón · 3-4.2s: vuelve al color original -->
+  <rect width="32" height="32" rx="7" fill="#07080a"/>
+  <g opacity="0" fill="none" stroke="#2bff94" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+    <animate attributeName="opacity" dur="5s" fill="freeze" calcMode="linear" keyTimes="0;0.30;0.44;0.48;0.52;0.56;0.60;0.84;1" values="0;0;.85;1;.9;.4;1;0;0"/>
+    <path d="M22 9 L10 9 L10 16 L16 16"><animate attributeName="d" dur="5s" fill="freeze" calcMode="spline" keyTimes="0;0.18;0.40;0.48;1" keySplines="0 0 1 1; 0.55 0 0.15 1; 0.3 0 0.3 1; 0 0 1 1" values="M22 9 L10 9 L10 16 L16 16;M22 9 L10 9 L10 16 L16 16;M10.5 10 L4.5 16 L7.5 19 L10.5 22;M12 10 L6 16 L9 19 L12 22;M12 10 L6 16 L9 19 L12 22"/></path>
+    <path d="M16 16 L22 16 L22 23 L10 23"><animate attributeName="d" dur="5s" fill="freeze" calcMode="spline" keyTimes="0;0.18;0.40;0.48;1" keySplines="0 0 1 1; 0.55 0 0.15 1; 0.3 0 0.3 1; 0 0 1 1" values="M16 16 L22 16 L22 23 L10 23;M16 16 L22 16 L22 23 L10 23;M21.5 10 L27.5 16 L24.5 19 L21.5 22;M20 10 L26 16 L23 19 L20 22;M20 10 L26 16 L23 19 L20 22"/></path>
+  </g>
+  <g fill="none" stroke="#7dd3a8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 9 L10 9 L10 16 L16 16"><animate attributeName="d" dur="5s" fill="freeze" calcMode="spline" keyTimes="0;0.18;0.40;0.48;1" keySplines="0 0 1 1; 0.55 0 0.15 1; 0.3 0 0.3 1; 0 0 1 1" values="M22 9 L10 9 L10 16 L16 16;M22 9 L10 9 L10 16 L16 16;M10.5 10 L4.5 16 L7.5 19 L10.5 22;M12 10 L6 16 L9 19 L12 22;M12 10 L6 16 L9 19 L12 22"/><animate attributeName="stroke" dur="5s" fill="freeze" calcMode="linear" keyTimes="0;0.30;0.44;0.48;0.52;0.56;0.60;0.84;1" values="#7dd3a8;#7dd3a8;#5dffb0;#d6ffe9;#5dffb0;#8be9bd;#5dffb0;#7dd3a8;#7dd3a8"/></path>
+    <path d="M16 16 L22 16 L22 23 L10 23"><animate attributeName="d" dur="5s" fill="freeze" calcMode="spline" keyTimes="0;0.18;0.40;0.48;1" keySplines="0 0 1 1; 0.55 0 0.15 1; 0.3 0 0.3 1; 0 0 1 1" values="M16 16 L22 16 L22 23 L10 23;M16 16 L22 16 L22 23 L10 23;M21.5 10 L27.5 16 L24.5 19 L21.5 22;M20 10 L26 16 L23 19 L20 22;M20 10 L26 16 L23 19 L20 22"/><animate attributeName="stroke" dur="5s" fill="freeze" calcMode="linear" keyTimes="0;0.30;0.44;0.48;0.52;0.56;0.60;0.84;1" values="#7dd3a8;#7dd3a8;#5dffb0;#d6ffe9;#5dffb0;#8be9bd;#5dffb0;#7dd3a8;#7dd3a8"/></path>
+  </g>
+</svg>

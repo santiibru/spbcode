@@ -60,10 +60,14 @@ main:focus { outline: none; }
 .topbar[data-scrolled]::before { opacity: 1; }
 .topbar .wrap { display: flex; align-items: center; gap: 24px; padding-block: 16px; }
 .logo {
+  display: inline-flex; align-items: center; gap: 4px;
   font-family: var(--mono); font-weight: 600; font-size: 17px;
   letter-spacing: -.01em; color: var(--fg); text-decoration: none;
 }
-.logo span { color: var(--accent); }
+.logo-text span { color: var(--accent); }
+/* el SVG trae margen interno: el icono se ve más chico que su caja */
+.logo-mark { flex: none; width: 32px; height: 32px; margin-left: -6px; }
+.logo-mark svg { display: block; width: 100%; height: 100%; }
 .site-nav { margin-left: auto; }
 .nav-num { display: none; font-family: var(--mono); font-size: var(--fs-s); font-weight: 400; letter-spacing: 0; color: var(--accent); }
 

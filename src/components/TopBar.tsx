@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { type Dict, type Locale, localePath, sectionIds, sectionKeys } from "../i18n";
 import { LangSwitch } from "./LangSwitch";
+import { Logo } from "./Logo";
 
 // En móvil (≤ 820px) los enlaces pasan a un panel a pantalla completa que abre el botón de menú
 const MOBILE = "(max-width: 820px)";
@@ -47,9 +48,7 @@ export function TopBar({ lang, dict }: { lang: Locale; dict: Dict }) {
   return (
     <header className="topbar" data-open={open || undefined} data-scrolled={scrolled || undefined}>
       <div className="wrap">
-        <a className="logo" href={localePath(lang)} aria-label="spbcode">
-          spb<span>code</span>
-        </a>
+        <Logo href={localePath(lang)} />
         <nav id="site-menu" className="site-nav" aria-label={dict.nav.menu}>
           <ul className="nav-links">
             {sectionKeys.map((k, i) => (
