@@ -15,7 +15,14 @@ export function About({ dict, id }: { dict: Dict; id: string }) {
               <p key={p}>{p}</p>
             ))}
           </div>
-          <p className="stack">{SITE.stack}</p>
+          <dl className="stack">
+            {(Object.keys(SITE.stack) as (keyof typeof SITE.stack)[]).map((k) => (
+              <div key={k}>
+                <dt>{t.stackLabels[k]}</dt>
+                <dd>{SITE.stack[k].join(" · ")}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
         {photo && (
           <picture className="photo">

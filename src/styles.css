@@ -394,7 +394,10 @@ p { font-size: var(--fs-p); color: var(--muted); line-height: 1.6; }
 .about-text { max-width: 62ch; }
 .about-text p { font-size: var(--fs-lead); line-height: 1.6; }
 .about-text p + p { margin-top: 1em; }
-.stack { margin-top: 32px; font-family: var(--mono); font-size: var(--fs-xs); color: var(--muted); }
+.stack { margin-top: 32px; display: grid; gap: 8px; font-family: var(--mono); font-size: var(--fs-xs); color: var(--muted); }
+.stack div { display: grid; grid-template-columns: 9ch 1fr; gap: 12px; }
+.stack dt { color: var(--accent); }
+.stack dd { margin: 0; }
 /* 420px de ancho máximo: en móvil la foto no ocupa toda la pantalla y 896px alcanzan para pantallas 2x */
 .photo { display: block; width: 100%; max-width: 420px; }
 .photo img { border-radius: 16px; border: 1px solid var(--line); }

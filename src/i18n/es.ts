@@ -58,7 +58,7 @@ const es: Dict = {
       {
         title: "Estudio de fisioterapia",
         text: "Un sistema de reservas online que reemplaza el intercambio de llamadas y mensajes: los pacientes eligen un turno libre y el estudio maneja la agenda desde un panel. Los profesionales controlan los turnos directamente desde su propio calendario en tiempo real.",
-        tags: ["Reservas online", "Area reservada", "Confirmaciones automáticas"],
+        tags: ["Reservas online", "Área reservada", "Confirmaciones automáticas"],
       },
       {
         title: "Portfolio para una artista",
@@ -109,6 +109,7 @@ const es: Dict = {
       "Soy Santiago, desarrollador web en Milán. Trabajo en desarrollo fullstack y diseño y me ocupo de cada fase del proyecto, desde la idea hasta la publicación.",
       "Hablo italiano, español e inglés y hago sitios en los tres idiomas.",
     ],
+    stackLabels: { frontend: "Frontend:", backend: "Backend:", data: "Datos:" },
     photoAlt: "Retrato de Santiago",
   },
   contact: {

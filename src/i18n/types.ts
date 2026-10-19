@@ -79,6 +79,7 @@ export interface Dict {
     kicker: string;
     title: string;
     paragraphs: string[];
+    stackLabels: { frontend: string; backend: string; data: string };
     photoAlt: string;
   };
   contact: {

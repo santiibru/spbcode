@@ -72,7 +72,7 @@ const it: Dict = {
       },
     ],
     demo: {
-      note: "Demo con dati di fantasia",
+      note: "Demo con dati fittizi",
       booking: {
         title: "Prenota il tuo appuntamento",
         sub: "Seleziona una data per vedere gli slot disponibili.",
@@ -109,6 +109,7 @@ const it: Dict = {
       "Sono Santiago, sviluppatore web a Milano. Lavoro in sviluppo fullstack e design e mi occupo di ogni fase del progetto, dall'idea alla pubblicazione.",
       "Parlo italiano, spagnolo e inglese e realizzo siti in tutte e tre le lingue.",
     ],
+    stackLabels: { frontend: "Frontend:", backend: "Backend:", data: "Dati:" },
     photoAlt: "Ritratto di Santiago",
   },
   contact: {
