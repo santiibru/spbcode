@@ -49,14 +49,10 @@ function jsonLd(lang: Locale, dict: Dict) {
   return JSON.stringify(data).replace(/</g, "\\u003c");
 }
 
-export function renderHead(lang: Locale, dict: Dict) {
-  const url = abs(localePath(lang));
-  const { title, description } = dict.meta;
-  const tags = [
-    `<title>${esc(title)}</title>`,
-    `<meta name="description" content="${esc(description)}">`,
-    `<link rel="canonical" href="${url}">`,
-    alternates(),
+// Etiquetas para la vista previa al compartir (WhatsApp, redes). Los crawlers no ejecutan JS,
+// así que también van en "/" aunque esa página redirija.
+function ogTags(title: string, description: string, url: string, lang: Locale) {
+  return [
     `<meta property="og:type" content="website">`,
     `<meta property="og:site_name" content="${SITE.name}">`,
     `<meta property="og:title" content="${esc(title)}">`,
@@ -72,6 +68,18 @@ export function renderHead(lang: Locale, dict: Dict) {
           `<meta name="twitter:card" content="summary_large_image">`,
         ]
       : [`<meta name="twitter:card" content="summary">`]),
+  ];
+}
+
+export function renderHead(lang: Locale, dict: Dict) {
+  const url = abs(localePath(lang));
+  const { title, description } = dict.meta;
+  const tags = [
+    `<title>${esc(title)}</title>`,
+    `<meta name="description" content="${esc(description)}">`,
+    `<link rel="canonical" href="${url}">`,
+    alternates(),
+    ...ogTags(title, description, url, lang),
     `<script type="application/ld+json">${jsonLd(lang, dict)}</script>`,
   ];
   return tags.join("\n    ");
@@ -121,17 +129,16 @@ export function renderRootPage() {
   const script = `<script>(function(){var s=${supported},p=null;try{p=localStorage.getItem("${LANG_KEY}")}catch(e){}
 var l=s.indexOf(p)>-1?p:null;if(!l){var n=navigator.languages||[navigator.language||""];for(var i=0;i<n.length&&!l;i++){var c=String(n[i]).slice(0,2).toLowerCase();if(s.indexOf(c)>-1)l=c}}
 location.replace("/"+(l||"${locales[0]}")+"/"+location.hash)})()</script>`;
+  const title = "spbcode — Sviluppo web su misura · Desarrollo web a medida";
+  const description = "Sviluppo web su misura · Desarrollo web a medida.";
   const head = [
-    `<meta name="description" content="Sviluppo web su misura · Desarrollo web a medida.">`,
+    `<meta name="description" content="${description}">`,
     `<link rel="canonical" href="${abs("/")}">`,
     alternates(),
+    ...ogTags(title, description, abs("/"), locales[0]),
     script,
   ].join("\n    ");
-  return shell(
-    "spbcode — Sviluppo web su misura · Desarrollo web a medida",
-    `${logo}<p>Scegli la lingua · Elegí el idioma</p>${langLinks()}`,
-    head,
-  );
+  return shell(title, `${logo}<p>Scegli la lingua · Elegí el idioma</p>${langLinks()}`, head);
 }
 
 export function renderNotFoundPage() {
