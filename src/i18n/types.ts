@@ -48,6 +48,27 @@ export interface Dict {
     title: string;
     lead: string;
     items: [Block & { tags: string[] }, Block & { tags: string[] }, Block & { tags: string[] }];
+    // textos de las animaciones de demostración
+    demo: {
+      note: string;
+      booking: {
+        title: string;
+        sub: string;
+        days: [string, string, string, string, string];
+        book: string;
+        name: string;
+        cancel: string;
+        confirm: string;
+        done: string;
+        agenda: string;
+        agendaDay: string;
+        confirmed: string;
+        isNew: string;
+        free: string;
+      };
+      gallery: { nav: [string, string, string, string]; title: string; filters: [string, string, string, string] };
+      rsvp: { title: string; name: string; attend: string; yes: string; submit: string; thanks: string };
+    };
   };
   method: {
     kicker: string;
